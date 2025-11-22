@@ -1,0 +1,90 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# PyTorch Lightning logs
+lightning_logs/
+*/lightning_logs/*
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (large files - download separately)
+data/favorita/*.csv
+data/favorita/*.zip
+*.csv
+*.zip
+
+# Exclude processed data but keep the directory
+data/processed/*
+!data/processed/.gitkeep
+
+# Model checkpoints (too large for git)
+*.pth
+*.ckpt
+checkpoints/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Output files (generated, can be reproduced)
+output/*.csv
+output/*.png
+
+# Keep example outputs for README
+!results/*.png
+
+# Environment variables
+.env
+.env.local
+
+# Test coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
