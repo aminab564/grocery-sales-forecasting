@@ -7,16 +7,15 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Problem Statement](#-problem-statement)
-- [Executive Summary](#-executive-summary)
+- [Problem Statement](#problem-statement)
+- [Executive Summary](#executive-summary)
 - [Data Sources](#data-sources)
 - [Methodology](#methodology)
 - [Results](#results)
 - [Key Findings](#key-findings)
 - [Technical Implementation](#technical-implementation)
-- [Repository Structure](#repository-structure)
 - [How to Run](#how-to-run)
 - [Dependencies](#dependencies)
 - [Future Work](#future-work)
@@ -44,7 +43,7 @@ Grocery retailers face significant challenges in inventory management due to dem
 
 ---
 
-## 📊 Executive Summary
+## Executive Summary
 
 This project demonstrates that **neural network models with exogenous features achieve a 26.2% improvement** over traditional statistical baselines for grocery sales forecasting.
 
@@ -52,9 +51,9 @@ This project demonstrates that **neural network models with exogenous features a
 
 | Model Category | Best Model | MAE | MAPE | Improvement |
 |----------------|------------|-----|------|-------------|
-| Statistical Baseline | AutoTheta | $276.44 | 20.3% | Baseline |
-| Neural (No Exog) | PatchTST | $213.83 | 16.8% | +22.6% |
-| **Neural (With Exog)** | **NHITS_base** | **$204.07** | **15.87%** | **+26.2%** |
+| Statistical Baseline | AutoTheta | 276.44 | 20.3% | Baseline |
+| Neural (No Exog) | PatchTST | 213.83 | 16.8% | +22.6% |
+| **Neural (With Exog)** | **NHITS_base** | **204.07** | **15.87%** | **+26.2%** |
 
 ### Kaggle Competition Validation
 
@@ -64,6 +63,8 @@ The NHITS model architecture was validated on the full Favorita dataset (1,782 t
 - **Dataset**: Complete 54 stores × 33 product families
 - **Performance**: Strong competitive score demonstrating approach generalizes beyond study subset
 
+**![Kaggle submission](results/kaggle-submission.png)**
+
 ### Business Impact
 - **15.87% MAPE** represents "good" performance by industry standards (10-20% range)
 - Forecasting 150 time series across 7-day horizon
@@ -72,7 +73,7 @@ The NHITS model architecture was validated on the full Favorita dataset (1,782 t
 
 ---
 
-## 📂 Data Sources
+## Data Sources
 
 ### Dataset: Favorita Grocery Sales
 - **Source**: [Kaggle - Store Sales Time Series Forecasting](https://www.kaggle.com/c/store-sales-time-series-forecasting)
@@ -90,7 +91,7 @@ The NHITS model architecture was validated on the full Favorita dataset (1,782 t
 #### Feature Categories
 
 **Target Variable**:
-- `y`: Daily sales in USD
+- `y`: Total sales for a product family at a particular store at a given date
 
 **Promotion Features**:
 - `has_promotion`: Binary indicator for promotional activity
@@ -119,7 +120,7 @@ The NHITS model architecture was validated on the full Favorita dataset (1,782 t
 
 ---
 
-## 🔬 Methodology
+## Methodology
 
 ### Experimental Design
 
@@ -174,7 +175,7 @@ Phase 4: Final Model Selection & Analysis
 
 ### Evaluation Metrics
 
-- **MAE (Mean Absolute Error)**: Primary metric - average dollar error
+- **MAE (Mean Absolute Error)**: Primary metric - average sales unit
 - **RMSE (Root Mean Squared Error)**: Penalizes large errors
 - **MAPE (Mean Absolute Percentage Error)**: Scale-independent accuracy
 
@@ -185,7 +186,7 @@ Phase 4: Final Model Selection & Analysis
 
 ---
 
-## 📈 Results
+## Results
 
 ### Overall Model Performance
 
@@ -196,32 +197,32 @@ Phase 4: Final Model Selection & Analysis
 #### Statistical Models
 | Model | MAE | RMSE | MAPE | Training Time |
 |-------|-----|------|------|---------------|
-| SeasonalNaive | $352.18 | $812.45 | 25.4% | <1 min |
-| AutoARIMA | $298.67 | $698.23 | 22.1% | ~15 min |
-| AutoETS | $287.91 | $672.45 | 21.3% | ~12 min |
-| **AutoTheta** | **$276.44** | **$654.12** | **20.3%** | ~10 min |
+| SeasonalNaive | 352.18 | 812.45 | 25.4% | <1 min |
+| AutoARIMA | 298.67 | 698.23 | 22.1% | ~15 min |
+| AutoETS | 287.91 | 672.45 | 21.3% | ~12 min |
+| **AutoTheta** | **276.44** | **654.12** | **20.3%** | ~10 min |
 
 #### Neural Networks (No Exogenous)
 | Model | MAE | RMSE | MAPE | Training Time |
 |-------|-----|------|------|---------------|
-| NBEATS | $228.45 | $512.34 | 18.2% | ~8 min |
-| NHITS | $219.67 | $498.56 | 17.4% | ~7 min |
-| **PatchTST** | **$213.83** | **$485.91** | **16.8%** | ~10 min |
+| NBEATS | 228.45 | 512.34 | 18.2% | ~8 min |
+| NHITS | 219.67 | 498.56 | 17.4% | ~7 min |
+| **PatchTST** | **213.83** | **485.91** | **16.8%** | ~10 min |
 
 #### Neural Networks (With Exogenous)
 | Model | MAE | RMSE | MAPE | Training Time |
 |-------|-----|------|------|---------------|
-| **NHITS_base** | **$204.07** | **$442.01** | **15.87%** | ~8 min |
-| NHITS_deep | $212.78 | $444.58 | 16.57% | ~12 min |
+| **NHITS_base** | **204.07** | **442.01** | **15.87%** | ~8 min |
+| NHITS_deep | 212.78 | 444.58 | 16.57% | ~12 min |
 
 ### Performance Evolution
 
 ```
-Statistical Baseline (AutoTheta):     $276.44 MAE
+Statistical Baseline (AutoTheta):     276.44 MAE
          ↓ +22.6% improvement
-Neural Networks (PatchTST):           $213.83 MAE
+Neural Networks (PatchTST):           213.83 MAE
          ↓ +4.6% improvement
-Neural + Exogenous (NHITS_base):      $204.07 MAE
+Neural + Exogenous (NHITS_base):      204.07 MAE
 ```
 
 ### Forecast Visualization
@@ -236,13 +237,13 @@ Neural + Exogenous (NHITS_base):      $204.07 MAE
 
 **Key Observations**:
 - Error distribution is approximately normal with mean near zero
-- No systematic bias (mean error: $-2.34)
+- No systematic bias (mean error: -2.34)
 - Some large errors driven by promotional events and outlier sales days
-- Model performs well across diverse sales volumes ($100 - $7,000 range)
+- Model performs well across diverse sales volumes (100 - 7,000 range)
 
 ---
 
-## 🔑 Key Findings
+## Key Findings
 
 ### 1. Neural Networks Outperform Statistical Methods
 - **22.6% improvement** when moving from AutoTheta to PatchTST
@@ -263,8 +264,8 @@ Neural + Exogenous (NHITS_base):      $204.07 MAE
 - Diminishing returns from increased model complexity
 
 ### 4. Scale and Outlier Challenges
-- High variance in some categories (e.g., CLEANING: $767 mean, $10,801 max)
-- Sales range from $0 to $124,717 across different product families
+- High variance in some categories (e.g., CLEANING: 767 mean, 10,801 max)
+- Sales range from 0 to 124,717 across different product families
 - Robust scaling in models helps handle this heterogeneity
 
 ### 5. Data Sufficiency Analysis
@@ -287,7 +288,7 @@ Neural + Exogenous (NHITS_base):      $204.07 MAE
 
 ---
 
-## 💻 Technical Implementation
+## Technical Implementation
 
 ### Technology Stack
 
@@ -373,55 +374,6 @@ sales_roll_7 = y.rolling(7).mean()
 - Validation set for early stopping
 - Final evaluation on held-out test set
 
----
-
-## 📁 Repository Structure
-
-```
-grocery-sales-forecasting/
-│
-├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
-├── .gitignore                        # Git ignore rules
-│
-├── notebooks/                        # Jupyter notebooks (analysis workflow)
-│   ├── Part 1 - Data Loading & Subset Creation.ipynb
-│   ├── Part 2 - Feature Engineering & EDA.ipynb
-│   ├── Part 3 - Statistical Baseline Models.ipynb
-│   ├── Part 4 - Neural Networks.ipynb
-│   ├── Part 4b - Neural Network Analysis.ipynb
-│   ├── Part 5 - Neural Networks with Exogenous Variables.ipynb
-│   └── Part 5b - Final Analysis & Model Decision.ipynb
-│
-├── data/                             # Data files (not in repo - download separately)
-│   ├── favorita/                    # Raw Kaggle dataset
-│   │   ├── train.csv
-│   │   ├── test.csv
-│   │   ├── oil.csv
-│   │   ├── holidays_events.csv
-│   │   └── stores.csv
-│   └── processed/                   # Processed datasets
-│       ├── train_subset.csv        # 150 time series subset
-│       ├── train_with_features.csv # Engineered features
-│       └── subset_metadata.json    # Subset configuration
-│
-├── output/                          # Model outputs and results
-│   ├── baseline_eval.csv           # Statistical model evaluations
-│   ├── neural_eval_checkpoint.csv  # Neural model evaluations
-│   ├── neural_exog_eval_checkpoint.csv  # Neural+exog evaluations
-│   ├── final_all_models_comparison.csv  # Comprehensive results
-│   └── *.png                       # Visualizations
-│
-├── results/                        # Final results and visualizations
-│   ├── final_model_comparison.png
-│   ├── forecast_comparison_all_models.png
-│   └── error_analysis.png
-│
-└── docs/                          # Additional documentation
-    ├── methodology.md
-    └── model_details.md
-```
-
 ### Notebook Overview
 
 1. **Part 1 - Data Loading & Subset Creation** ([View](notebooks/Part%201%20-%20Data%20Loading%20%26%20Subset%20Creation.ipynb))
@@ -461,7 +413,7 @@ grocery-sales-forecasting/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Prerequisites
 
@@ -515,7 +467,7 @@ jupyter notebook "notebooks/Part 3 - Statistical Baseline Models.ipynb"
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 ### Core Requirements
 
@@ -558,7 +510,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 ---
 
-## 🔮 Future Work
+## Future Work
 
 ### Model Improvements
 1. **Hyperparameter Tuning**: 
@@ -612,7 +564,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 ---
 
-## 📚 References
+## References
 
 ### Datasets
 - **Favorita Grocery Sales**: [Kaggle Competition](https://www.kaggle.com/c/store-sales-time-series-forecasting)
@@ -645,24 +597,24 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 ---
 
-## 👤 Author
+## Author
 
 **Amina Abacon**  
 UC Berkeley Professional Certificate in Machine Learning and Artificial Intelligence
 
 **Contact**:
-- GitHub: [@aminaabacon](https://github.com/aminaabacon)
-- LinkedIn: [Amina Abacon](https://linkedin.com/in/aminaabacon)
+- GitHub: [@aminaabacon](https://github.com/aminab564)
+- LinkedIn: [Amina Abacon](https://www.linkedin.com/in/aminaabacon/)
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **UC Berkeley** for the ML & AI Professional Certificate Program
 - **Kaggle & Corporación Favorita** for providing the dataset
@@ -671,7 +623,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📊 Project Statistics
+## Project Statistics
 
 - **Lines of Code**: ~2,500
 - **Training Time**: ~67 minutes (CPU)
