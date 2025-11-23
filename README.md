@@ -68,7 +68,7 @@ The NHITS model architecture was validated on the full Favorita dataset (1,782 t
 ### Business Impact
 - **15.87% MAPE** represents "good" performance by industry standards (10-20% range)
 - Forecasting 150 time series across 7-day horizon
-- Expected annual cost reduction of **~$26,000** per store-category combination from improved accuracy
+- Reduces stockouts and enables better inventory decisions
 - Kaggle validation confirms approach scales to full production deployment
 
 ---
@@ -572,13 +572,14 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 - **Oil Prices**: Brent crude historical data
 
 ### Libraries & Frameworks
-- **Nixtla NeuralForecast**: [Documentation](https://nixtla.github.io/neuralforecast/)
+- **Nixtla NeuralForecast**: [Documentation](https://nixtlaverse.nixtla.io/neuralforecast/docs/getting-started/introduction.html)
 - **Nixtla StatsForecast**: [Documentation](https://nixtla.github.io/statsforecast/)
 - **PyTorch Lightning**: [Documentation](https://lightning.ai/docs/pytorch/stable/)
 
 ### Academic References
 
 **Models Used in This Project**:
+
 1. Oreshkin, B. N., et al. (2019). "N-BEATS: Neural basis expansion analysis for interpretable time series forecasting." ICLR 2020.
    - *Implemented via Nixtla's NeuralForecast library*
 2. Challu, C., et al. (2022). "N-HiTS: Neural Hierarchical Interpolation for Time Series Forecasting." AAAI 2023.
