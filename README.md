@@ -9,8 +9,8 @@
 
 ## 📋 Table of Contents
 
-- [Problem Statement](#problem-statement)
-- [Executive Summary](#executive-summary)
+- [Problem Statement](#-problem-statement)
+- [Executive Summary](#-executive-summary)
 - [Data Sources](#data-sources)
 - [Methodology](#methodology)
 - [Results](#results)
@@ -24,7 +24,7 @@
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 ### Business Context
 Grocery retailers face significant challenges in inventory management due to demand variability. Accurate sales forecasting at the product level is critical for:
